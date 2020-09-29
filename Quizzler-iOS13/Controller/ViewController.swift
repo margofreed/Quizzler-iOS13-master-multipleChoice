@@ -47,19 +47,11 @@ class ViewController: UIViewController {
         
         //3 answer choices
         let answerChoices = quizBrain.getAnswers()
-        let unqiueRandomArray = Array(Set(answerChoices)).prefix(3)
-        print(answerChoices)
+       
         
-        choiceA.setTitle(answerChoices[0], for: .normal)
-        choiceB.setTitle(answerChoices[1], for: .normal)
-        choiceC.setTitle(answerChoices[2], for: .normal)
-        
-        /*
-        Need help here
-        choiceA.setTitle(answerChoices, for: .normal)
-        choiceB.setTitle(answerChoices, for: .normal)
-        choiceC.setTitle(answerChoices, for: .normal)
-        */
+        choiceA.setTitle(answerChoices.randomElement(), for: .normal)
+        choiceB.setTitle(answerChoices.randomElement(), for: .normal)
+        choiceC.setTitle(answerChoices.randomElement(), for: .normal)
         
         progressBar.progress = quizBrain.getProgress()
         scoreLabel.text = "Score: \(quizBrain.getScore())"
